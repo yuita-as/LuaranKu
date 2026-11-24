@@ -1,0 +1,1506 @@
+{
+"updated": "2026-11-24",
+"kurs": {
+"USD": 16500,
+"EUR": 18000
+},
+"journals": [
+{
+"n": "Expert Systems with Applications",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/expert-systems-with-applications",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+15
+],
+"dur": [
+90,
+210
+],
+"top": true
+},
+{
+"n": "Knowledge-Based Systems",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/knowledge-based-systems",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+15
+],
+"dur": [
+90,
+210
+],
+"top": true
+},
+{
+"n": "Applied Soft Computing",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/applied-soft-computing",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+12,
+18
+],
+"dur": [
+90,
+180
+],
+"top": true
+},
+{
+"n": "Information Processing & Management",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/information-processing-and-management",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Sistem Informasi",
+"Ilmu Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+15
+],
+"dur": [
+100,
+210
+],
+"top": true
+},
+{
+"n": "Computer Networks",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/computer-networks",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"IT Support / Jaringan",
+"Teknologi"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+15,
+22
+],
+"dur": [
+100,
+210
+],
+"top": true
+},
+{
+"n": "Computers & Security",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/computers-and-security",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"IT Support / Jaringan",
+"Ilmu Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+15,
+22
+],
+"dur": [
+90,
+180
+],
+"top": true
+},
+{
+"n": "Computers in Human Behavior",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/computers-in-human-behavior",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SSCI Q1",
+"b": [
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+15
+],
+"dur": [
+120,
+210
+],
+"top": true
+},
+{
+"n": "Computers & Education",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/computers-and-education",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SSCI Q1",
+"b": [
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+8,
+12
+],
+"dur": [
+120,
+240
+],
+"top": true
+},
+{
+"n": "Telematics and Informatics",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/telematics-and-informatics",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SSCI Q1",
+"b": [
+"Soshum + Komputer",
+"Teknologi"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+15
+],
+"dur": [
+100,
+200
+],
+"top": true
+},
+{
+"n": "International Journal of Medical Informatics",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/international-journal-of-medical-informatics",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Kesehatan + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+15,
+25
+],
+"dur": [
+90,
+180
+],
+"top": true
+},
+{
+"n": "Journal of Biomedical Informatics",
+"p": "Elsevier",
+"url": "https://www.sciencedirect.com/journal/journal-of-biomedical-informatics",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q1",
+"b": [
+"Kesehatan + Komputer",
+"Ilmu Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+12,
+20
+],
+"dur": [
+90,
+180
+],
+"top": true
+},
+{
+"n": "Education and Information Technologies",
+"p": "Springer",
+"url": "https://link.springer.com/journal/10639",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SSCI Q1",
+"b": [
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+15,
+25
+],
+"dur": [
+90,
+180
+],
+"top": true
+},
+{
+"n": "Interactive Learning Environments",
+"p": "Taylor & Francis",
+"url": "https://www.tandfonline.com/journals/nile20",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SSCI Q1",
+"b": [
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+10,
+20
+],
+"dur": [
+120,
+240
+],
+"top": true
+},
+{
+"n": "Neural Computing and Applications",
+"p": "Springer",
+"url": "https://link.springer.com/journal/521",
+"sc": "int",
+"sinta": null,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "SCIE Q2",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+15,
+25
+],
+"dur": [
+90,
+200
+],
+"top": true
+},
+{
+"n": "Soft Computing",
+"p": "Springer",
+"url": "https://link.springer.com/journal/500",
+"sc": "int",
+"sinta": null,
+"sjr": "Q2",
+"cs": "Q1",
+"wos": "SCIE Q2",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+18,
+28
+],
+"dur": [
+90,
+210
+]
+},
+{
+"n": "The Journal of Supercomputing",
+"p": "Springer",
+"url": "https://link.springer.com/journal/11227",
+"sc": "int",
+"sinta": null,
+"sjr": "Q2",
+"cs": "Q1",
+"wos": "SCIE Q2",
+"b": [
+"Ilmu Komputer",
+"Teknologi"
+],
+"apc": 0,
+"apcT": "Rp0 lewat jalur langganan (non-OA)",
+"ar": [
+20,
+30
+],
+"dur": [
+90,
+180
+]
+},
+{
+"n": "Indonesian Journal of Science and Technology (IJOST)",
+"p": "Universitas Pendidikan Indonesia",
+"url": "https://ejournal.upi.edu/index.php/ijost",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q1",
+"cs": "Q1",
+"wos": "ESCI",
+"b": [
+"Sainteks",
+"Teknologi"
+],
+"apc": 0,
+"apcT": "Umumnya tanpa APC (cek kebijakan terbaru)",
+"ar": [
+15,
+25
+],
+"dur": [
+60,
+120
+],
+"top": true
+},
+{
+"n": "International Journal of Advances in Intelligent Informatics (IJAIN)",
+"p": "Universitas Ahmad Dahlan & ASCEE",
+"url": "https://ijain.org",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q2",
+"cs": "Q2",
+"wos": "ESCI",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"apc": 6000000,
+"apcT": "± Rp4–7 juta (cek)",
+"ar": [
+10,
+20
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "TELKOMNIKA (Telecommunication Computing Electronics and Control)",
+"p": "Universitas Ahmad Dahlan",
+"url": "https://telkomnika.uad.ac.id",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q2",
+"wos": null,
+"b": [
+"Teknologi",
+"Informatika",
+"IT Support / Jaringan"
+],
+"apc": 7000000,
+"apcT": "± Rp5–8 juta (cek)",
+"ar": [
+20,
+30
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Bulletin of Electrical Engineering and Informatics (BEEI)",
+"p": "IAES",
+"url": "https://beei.org",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q2",
+"wos": null,
+"b": [
+"Informatika",
+"Teknologi"
+],
+"apc": 8000000,
+"apcT": "± Rp7–9 juta (cek)",
+"ar": [
+20,
+30
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "JOIV: International Journal on Informatics Visualization",
+"p": "Politeknik Negeri Padang dkk.",
+"url": "https://joiv.org",
+"sc": "int",
+"sinta": 2,
+"sjr": "Q3",
+"cs": "Q2",
+"wos": null,
+"b": [
+"Informatika",
+"Teknologi"
+],
+"apc": 8000000,
+"apcT": "± Rp6–9 juta (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Journal of ICT Research and Applications",
+"p": "Institut Teknologi Bandung",
+"url": "https://journals.itb.ac.id/index.php/jictra",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q3",
+"wos": "ESCI",
+"b": [
+"Ilmu Komputer",
+"Teknologi"
+],
+"apc": 0,
+"apcT": "Rp0 – rendah (cek situs)",
+"ar": [
+20,
+30
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "Journal of Information Systems Engineering and Business Intelligence (JISEBI)",
+"p": "Universitas Airlangga",
+"url": "https://e-journal.unair.ac.id/JISEBI",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q3",
+"wos": null,
+"b": [
+"Sistem Informasi",
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 – rendah (cek situs)",
+"ar": [
+20,
+30
+],
+"dur": [
+75,
+120
+]
+},
+{
+"n": "International Journal of Evaluation and Research in Education (IJERE)",
+"p": "IAES",
+"url": "https://ijere.iaescore.com",
+"sc": "int",
+"sinta": 2,
+"sjr": "Q3",
+"cs": "Q2",
+"wos": null,
+"b": [
+"Soshum + Komputer"
+],
+"apc": 7000000,
+"apcT": "± Rp6–8 juta (cek)",
+"ar": [
+20,
+30
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Kesmas: Jurnal Kesehatan Masyarakat Nasional",
+"p": "FKM Universitas Indonesia",
+"url": "https://scholarhub.ui.ac.id/kesmas/",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q3",
+"wos": "ESCI",
+"b": [
+"Kesehatan + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 – rendah (cek situs)",
+"ar": [
+15,
+25
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "Jurnal Ners",
+"p": "Universitas Airlangga",
+"url": "https://e-journal.unair.ac.id/JNERS",
+"sc": "int",
+"sinta": 1,
+"sjr": "Q3",
+"cs": "Q3",
+"wos": "ESCI",
+"b": [
+"Kesehatan + Komputer"
+],
+"apc": 3000000,
+"apcT": "± Rp2–4 juta (cek)",
+"ar": [
+20,
+30
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Register: Jurnal Ilmiah Teknologi Sistem Informasi",
+"p": "Universitas Pesantren Tinggi Darul Ulum",
+"url": "https://journal.unipdu.ac.id/index.php/register",
+"sc": "nas",
+"sinta": 2,
+"sjr": "Q3",
+"cs": "Q3",
+"wos": null,
+"b": [
+"Sistem Informasi",
+"Informatika"
+],
+"apc": 4000000,
+"apcT": "Biaya penulis + opsi fast track (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+30,
+90
+],
+"ft": "Ada — 2–3 putaran revisi setelah review awal",
+"v": true,
+"src": "https://forum.relawanjurnal.id/viewtopic.php?p=5472"
+},
+{
+"n": "Jurnal Ilmu Komputer dan Informasi (JIKI)",
+"p": "Fasilkom Universitas Indonesia",
+"url": "https://jiki.cs.ui.ac.id",
+"sc": "nas",
+"sinta": 1,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Ilmu Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)",
+"p": "Ikatan Ahli Informatika Indonesia",
+"url": "https://jurnal.iaii.or.id/index.php/RESTI",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika",
+"Sistem Informasi"
+],
+"apc": 1500000,
+"apcT": "± Rp1–2 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+45,
+90
+]
+},
+{
+"n": "IJCCS (Indonesian Journal of Computing and Cybernetics Systems)",
+"p": "Universitas Gadjah Mada",
+"url": "https://jurnal.ugm.ac.id/ijccs",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Ilmu Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 – rendah (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "JNTETI (Jurnal Nasional Teknik Elektro dan Teknologi Informasi)",
+"p": "Universitas Gadjah Mada",
+"url": "https://jurnal.ugm.ac.id/v3/JNTETI",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Teknologi",
+"Informatika"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+90,
+120
+]
+},
+{
+"n": "Lontar Komputer: Jurnal Ilmiah Teknologi Informasi",
+"p": "Universitas Udayana",
+"url": "https://ojs.unud.ac.id/index.php/lontar",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Ilmu Komputer"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Jurnal Teknologi dan Sistem Komputer (JTSiskom)",
+"p": "Universitas Diponegoro",
+"url": "https://jtsiskom.undip.ac.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Teknologi",
+"Ilmu Komputer"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Kinetik: Game Technology, Information System, Computer Network, Computing, Electronics, and Control",
+"p": "Universitas Muhammadiyah Malang",
+"url": "https://kinetik.umm.ac.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika",
+"IT Support / Jaringan"
+],
+"apc": 1500000,
+"apcT": "± Rp1–2 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+60,
+90
+]
+},
+{
+"n": "Scientific Journal of Informatics (SJI)",
+"p": "Universitas Negeri Semarang",
+"url": "https://journal.unnes.ac.id/nju/index.php/sji",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika"
+],
+"apc": 500000,
+"apcT": "Rp0 – rendah (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "JUITA: Jurnal Informatika",
+"p": "Universitas Muhammadiyah Purwokerto",
+"url": "https://jurnalnasional.ump.ac.id/index.php/JUITA",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "MATRIK: Jurnal Manajemen, Teknik Informatika dan Rekayasa Komputer",
+"p": "Universitas Bumigora",
+"url": "https://journal.universitasbumigora.ac.id/index.php/matrik",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika",
+"Teknologi"
+],
+"apc": 1500000,
+"apcT": "± Rp1–2 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+45,
+90
+]
+},
+{
+"n": "Jurnal Teknologi Informasi dan Ilmu Komputer (JTIIK)",
+"p": "Universitas Brawijaya",
+"url": "https://jtiik.ub.ac.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Ilmu Komputer",
+"Sistem Informasi"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "Khazanah Informatika",
+"p": "Universitas Muhammadiyah Surakarta",
+"url": "https://journals.ums.ac.id/index.php/khif",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+30,
+40
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "Jurnal Sistem Informasi (Journal of Information Systems)",
+"p": "Fasilkom Universitas Indonesia",
+"url": "https://jsi.cs.ui.ac.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Sistem Informasi",
+"Soshum + Komputer"
+],
+"apc": 0,
+"apcT": "Rp0 – rendah (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+90,
+150
+]
+},
+{
+"n": "JITEKI (Jurnal Ilmiah Teknik Elektro Komputer dan Informatika)",
+"p": "Universitas Ahmad Dahlan",
+"url": "https://journal.uad.ac.id/index.php/JITEKI",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Teknologi",
+"Informatika"
+],
+"apc": 1500000,
+"apcT": "± Rp1–2 juta (cek)",
+"ar": [
+25,
+35
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "JUTIF (Jurnal Teknik Informatika)",
+"p": "Universitas Jenderal Soedirman",
+"url": "https://jutif.if.unsoed.ac.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Informatika",
+"Ilmu Komputer"
+],
+"apc": 1000000,
+"apcT": "± Rp0,5–1,5 juta (cek)",
+"ar": [
+35,
+45
+],
+"dur": [
+90,
+150
+],
+"note": "Naskah yang masuk sejak Juni 2026 diproses untuk terbitan April 2027",
+"v": true,
+"src": "https://jutif.if.unsoed.ac.id/index.php/jurnal/announcement/view/11"
+},
+{
+"n": "Jurnal Manajemen Informasi Kesehatan Indonesia (JMIKI)",
+"p": "APTIRMIKI",
+"url": "https://jmiki.aptirmik.or.id",
+"sc": "nas",
+"sinta": 2,
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Kesehatan + Komputer"
+],
+"apc": 750000,
+"apcT": "± Rp0,5–1 juta (cek)",
+"ar": [
+35,
+45
+],
+"dur": [
+60,
+120
+]
+},
+{
+"n": "JUSIFOR: Jurnal Sistem Informasi dan Informatika",
+"p": "Universitas Islam Raden Rahmat Malang",
+"url": "https://ejournal.uniramalang.ac.id/jusifor",
+"sc": "nas",
+"sinta": null,
+"sintaT": "Cek di SINTA",
+"sjr": null,
+"cs": null,
+"wos": null,
+"b": [
+"Sistem Informasi",
+"Informatika"
+],
+"apc": 850000,
+"apcT": "Submit gratis; fast track opsional Rp850.000 (di luar biaya terbit)",
+"ar": [
+45,
+60
+],
+"dur": [
+30,
+60
+],
+"ft": "Ada — Rp850.000, tetap lewat review & revisi",
+"v": true,
+"src": "https://ejournal.uniramalang.ac.id/jusifor/biaya_publikasi/index"
+}
+],
+"events": [
+{
+"n": "ICGHIT {Y} — Int. Conf. on Green and Human Information Technology",
+"p": "Politeknik Negeri Jakarta",
+"url": "https://icghit.org/",
+"t": "conf",
+"idx": "Internasional · blind peer review",
+"b": [
+"Ilmu Komputer",
+"Teknologi"
+],
+"s": "2027-01-20",
+"e": "2027-01-23",
+"loc": "Depok, Jawa Barat",
+"fee": 7500000,
+"feeT": "± Rp6–9 juta (perkiraan)",
+"dl": "Submisi 2027 ditutup 6 Nov 2026 · notifikasi 18 Des 2026",
+"recur": true,
+"v": true,
+"src": "https://easychair.org/cfp/ICGHIT2027",
+"reg": "Indonesia"
+},
+{
+"n": "ICIMPACT {Y} — Intelligent Multimedia, Physical-AI & Cyber-Technologies",
+"p": "Telkom University",
+"url": "https://icimpact.telkomuniversity.ac.id/",
+"t": "conf",
+"idx": "Internasional · hybrid",
+"b": [
+"Ilmu Komputer",
+"Teknologi"
+],
+"s": "2027-02-03",
+"e": "2027-02-05",
+"loc": "Bandung (hybrid)",
+"fee": 6000000,
+"feeT": "± Rp4–7 juta (perkiraan)",
+"dl": "Cek tenggat di situs",
+"recur": true,
+"v": true,
+"src": "https://icimpact.telkomuniversity.ac.id/",
+"reg": "Indonesia"
+},
+{
+"n": "ACIIDS {Y} — Asian Conf. on Intelligent Information and Database Systems",
+"p": "Wrocław Univ. of Science & Technology · IEEE CS Indonesia · BINUS",
+"url": "http://aciids.pwr.edu.pl/2027",
+"t": "conf",
+"idx": "CORE B · Springer LNAI/CCIS",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2027-04-05",
+"e": "2027-04-07",
+"loc": "Bali",
+"fee": 9900000,
+"feeT": "± EUR 500–600 (≈ Rp9–11 juta, batas atas)",
+"dl": "Cek tenggat di situs",
+"recur": false,
+"v": true,
+"top": true,
+"src": "https://easychair.org/cfp/ACIIDS2027",
+"reg": "Indonesia"
+},
+{
+"n": "ICSINTEXA {Y} — Smart Innovation, Intelligent Networks, Technological Excellence & Automation",
+"p": "Universitas Balikpapan",
+"url": "https://icsintexa.uniba-bpn.ac.id/",
+"t": "conf",
+"idx": "Internasional · edisi perdana · hybrid",
+"b": [
+"Informatika",
+"IT Support / Jaringan",
+"Teknologi"
+],
+"s": "2027-04-14",
+"e": "2027-04-15",
+"loc": "Balikpapan, Kalimantan Timur",
+"fee": 4000000,
+"feeT": "± Rp3–5 juta (perkiraan)",
+"dl": "Cek tenggat di situs",
+"recur": true,
+"v": true,
+"src": "https://icsintexa.uniba-bpn.ac.id/",
+"reg": "Indonesia"
+},
+{
+"n": "ISITIA {Y} — Int. Seminar on Intelligent Technology and Its Applications",
+"p": "Departemen Teknik Elektro ITS",
+"url": "https://elib.its.ac.id/conf/isitia",
+"t": "conf",
+"idx": "IEEE Xplore · Scopus",
+"b": [
+"Teknologi",
+"Informatika"
+],
+"s": "2026-07-22",
+"e": "2026-07-24",
+"loc": "Bali / Surabaya (hybrid)",
+"fee": 6000000,
+"feeT": "Domestik Rp5–6 juta; internasional USD 450–550 (edisi 2026)",
+"dl": "CFP biasanya dibuka awal tahun",
+"recur": true,
+"v": true,
+"src": "https://www.its.ac.id/telektro/isitia/registration/",
+"reg": "Indonesia"
+},
+{
+"n": "IC3INA {Y} — Computer, Control, Informatics and its Applications",
+"p": "BRIN",
+"url": "https://conference.brin.go.id/",
+"t": "conf",
+"idx": "IEEE Xplore",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2026-09-03",
+"e": "2026-09-05",
+"loc": "Lombok (edisi 2026) — cek lokasi terbaru",
+"fee": 5000000,
+"feeT": "± Rp4–6 juta (perkiraan)",
+"dl": "Pantau conference.brin.go.id",
+"recur": true,
+"v": true,
+"src": "https://conference.brin.go.id/ic3ina2026/",
+"reg": "Indonesia"
+},
+{
+"n": "ICACSIS {Y} — Advanced Computer Science and Information Systems",
+"p": "Fasilkom Universitas Indonesia",
+"url": "https://icacsis.cs.ui.ac.id/",
+"t": "conf",
+"idx": "IEEE Xplore · Scopus",
+"b": [
+"Ilmu Komputer",
+"Sistem Informasi"
+],
+"s": "2026-10-16",
+"e": "2026-10-18",
+"loc": "Depok / Indonesia",
+"fee": 6000000,
+"feeT": "± Rp5–7 juta (perkiraan)",
+"dl": "CFP biasanya Mei–Juli",
+"recur": true,
+"v": true,
+"src": "https://icacsis.cs.ui.ac.id/front/?p=2917",
+"reg": "Indonesia"
+},
+{
+"n": "ICELTICs {Y} — Electrical Engineering and Informatics",
+"p": "Informatika USK · APTIKOM · IEEE Indonesia Section",
+"url": "https://iceltics.usk.ac.id/",
+"t": "conf",
+"idx": "IEEE Xplore",
+"b": [
+"Informatika",
+"Teknologi"
+],
+"s": "2026-10-28",
+"e": "2026-10-29",
+"loc": "Banda Aceh",
+"fee": 5000000,
+"feeT": "± Rp4–6 juta (perkiraan)",
+"dl": "Pantau situs",
+"recur": true,
+"v": true,
+"src": "https://iceltics.usk.ac.id/cfp",
+"reg": "Indonesia"
+},
+{
+"n": "SENATIB {Y} — Seminar Nasional Teknologi Informasi dan Bisnis",
+"p": "Fakultas Ilmu Komputer Universitas Duta Bangsa Surakarta",
+"url": "https://ojs.udb.ac.id/index.php/senatib",
+"t": "sem",
+"idx": "Prosiding ISSN 2962-1968",
+"b": [
+"Informatika",
+"Sistem Informasi",
+"Soshum + Komputer"
+],
+"s": "2026-07-25",
+"e": "2026-07-25",
+"loc": "Surakarta",
+"fee": 400000,
+"feeT": "± Rp250–500 ribu (perkiraan)",
+"dl": "Pantau OJS SENATIB",
+"recur": true,
+"v": true,
+"src": "https://ojs.udb.ac.id/index.php/senatib",
+"reg": "Indonesia"
+},
+{
+"n": "SNISTEK {Y} — Seminar Nasional Ilmu Sosial dan Teknologi",
+"p": "Universitas Putera Batam",
+"url": "https://ejournal.upbatam.ac.id/index.php/prosiding",
+"t": "sem",
+"idx": "Prosiding",
+"b": [
+"Soshum + Komputer",
+"Teknologi"
+],
+"s": "2025-08-22",
+"e": "2025-08-23",
+"loc": "Batam (hybrid)",
+"fee": 350000,
+"feeT": "± Rp250–500 ribu (perkiraan)",
+"dl": "CFP biasanya Juni",
+"recur": true,
+"v": true,
+"src": "https://ejournal.upbatam.ac.id/index.php/prosiding/announcement/view/39",
+"reg": "Indonesia"
+},
+{
+"n": "SEMASTER {Y} — Seminar Nasional Teknologi Informasi & Ilmu Komputer",
+"p": "Universitas Lancang Kuning",
+"url": "https://journal.unilak.ac.id/index.php/Semaster",
+"t": "sem",
+"idx": "Prosiding",
+"b": [
+"Informatika",
+"Ilmu Komputer"
+],
+"s": "2025-11-15",
+"e": "2025-11-15",
+"loc": "Pekanbaru",
+"fee": 350000,
+"feeT": "± Rp250–500 ribu (perkiraan)",
+"dl": "Tanggal perkiraan — pantau arsip prosiding",
+"recur": true,
+"v": false,
+"src": "https://journal.unilak.ac.id/index.php/Semaster/issue/archive",
+"reg": "Indonesia"
+},
+{
+"n": "APSEC {Y} — Asia-Pacific Software Engineering Conference",
+"p": "Komunitas APSEC (IEEE)",
+"url": "https://conf.researchr.org/home/apsec-2026",
+"t": "conf",
+"idx": "Konferensi rekayasa perangkat lunak Asia-Pasifik · IEEE",
+"b": [
+"Ilmu Komputer",
+"Sistem Informasi"
+],
+"s": "2026-12-07",
+"e": "2026-12-10",
+"loc": "Sheraton Bali Kuta Resort, Bali (lokasi berpindah tiap tahun)",
+"fee": 13680000,
+"feeT": "USD 600–860 (Rp10,8–15,5 juta); kini tarif on-site Rp13,7 jt (IEEE) / Rp15,5 jt (non-member)",
+"dl": "Registrasi early & late sudah ditutup; tersisa on-site",
+"recur": true,
+"reg": "Indonesia",
+"v": true,
+"top": true,
+"src": "https://conf.researchr.org/attending/apsec-2026/registration"
+},
+{
+"n": "ICOIN {Y} — Int. Conf. on Information Networking",
+"p": "KIISE (Korea) · IEEE & IEICE technical co-sponsor",
+"url": "https://icoin.org",
+"t": "conf",
+"idx": "IEEE Xplore (technical co-sponsor) · QUALIS B1",
+"b": [
+"IT Support / Jaringan",
+"Teknologi"
+],
+"s": "2027-01-13",
+"e": "2027-01-15",
+"loc": "Nha Trang, Vietnam",
+"fee": 10500000,
+"feeT": "± USD 550–700 (≈ Rp9–11,5 juta, perkiraan — cek icoin.org)",
+"dl": "Submisi 2027 ditutup 18 Sep 2026",
+"recur": true,
+"reg": "ASEAN",
+"v": true,
+"src": "https://www.computer.org/conferences/cfp-ieee-icoin-2027"
+},
+{
+"n": "SEATUC {Y} — Southeast Asian Technical University Consortium Symposium",
+"p": "Hanoi University of Science and Technology · konsorsium SEATUC",
+"url": "https://www.shibaura-it.ac.jp/assets/SEATUC2027CFP.pdf",
+"t": "conf",
+"idx": "Simposium regional ASEAN–Jepang (cek prosiding)",
+"b": [
+"Ilmu Komputer",
+"Teknologi",
+"Soshum + Komputer"
+],
+"s": "2027-03-01",
+"e": "2027-03-02",
+"loc": "Hanoi, Vietnam",
+"fee": 3300000,
+"feeT": "USD 200 per makalah pertama (≈ Rp3,3 juta)",
+"dl": "Abstrak ditutup Sep–Okt 2026",
+"recur": true,
+"reg": "ASEAN",
+"v": true,
+"src": "https://www.shibaura-it.ac.jp/assets/SEATUC2027CFP.pdf"
+},
+{
+"n": "KST {Y} — Int. Conf. on Knowledge and Smart Technology",
+"p": "IEEE Thailand Section (Computer Chapter) · Burapha University · Tokyo Metropolitan University",
+"url": "https://kst.buu.ac.th/",
+"t": "conf",
+"idx": "IEEE technical co-sponsor (diajukan ke IEEE Xplore)",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2027-03-17",
+"e": "2027-03-20",
+"loc": "Tokyo Metropolitan University, Jepang",
+"fee": 8300000,
+"feeT": "THB 15.500–17.000 (≈ Rp7,6–8,3 juta)",
+"dl": "Early-bird 10–25 Jan 2027",
+"recur": true,
+"reg": "Asia",
+"v": true,
+"src": "https://kst.buu.ac.th/2027/Registration-policy.php"
+},
+{
+"n": "ICCIES {Y} — Int. Conf. on Computational Intelligence and Engineering Systems",
+"p": "Ton Duc Thang University",
+"url": "https://iccies.tdtu.edu.vn/2027/",
+"t": "conf",
+"idx": "Springer CCIS",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2027-04-15",
+"e": "2027-04-17",
+"loc": "Ho Chi Minh City, Vietnam",
+"fee": 5000000,
+"feeT": "USD 250–300 (≈ Rp4,1–5 juta)",
+"dl": "Registrasi & pembayaran paling lambat 30 Jan 2027",
+"recur": true,
+"reg": "ASEAN",
+"v": true,
+"src": "https://iccies.tdtu.edu.vn/2027/?p=6726"
+},
+{
+"n": "IC2IT {Y} — Int. Conf. on Computing and Information Technology",
+"p": "KMUTNB, Thailand",
+"url": "https://ic2it.org/",
+"t": "conf",
+"idx": "Springer",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2027-05-13",
+"e": "2027-05-14",
+"loc": "Bangkok, Thailand",
+"fee": 8000000,
+"feeT": "± USD 400–500 (≈ Rp6,6–8,3 juta, perkiraan)",
+"dl": "Cek di EasyChair IC2IT 2027",
+"recur": true,
+"reg": "ASEAN",
+"v": true,
+"src": "https://easychair.org/cfp/ic2it2027"
+},
+{
+"n": "JCSSE {Y} — Int. Joint Conf. on Computer Science and Software Engineering",
+"p": "Mae Fah Luang University · CSCRN",
+"url": "https://jcsse2027.mfu.ac.th/",
+"t": "conf",
+"idx": "Edisi sebelumnya di IEEE Xplore (cek edisi ini)",
+"b": [
+"Ilmu Komputer",
+"Sistem Informasi"
+],
+"s": "2027-06-16",
+"e": "2027-06-18",
+"loc": "Chiang Rai, Thailand",
+"fee": 8000000,
+"feeT": "± USD 400–500 (≈ Rp6,6–8,3 juta, perkiraan)",
+"dl": "Submisi putaran 2: 22 Jan 2027 · early registration 23 Apr 2027",
+"recur": true,
+"reg": "ASEAN",
+"v": true,
+"src": "https://jcsse2027.mfu.ac.th/"
+},
+{
+"n": "ACL {Y} — Annual Meeting of the Association for Computational Linguistics",
+"p": "Association for Computational Linguistics",
+"url": "https://2027.aclweb.org/",
+"t": "conf",
+"idx": "CORE A* · ACL Anthology",
+"b": [
+"Ilmu Komputer",
+"Informatika"
+],
+"s": "2027-08-17",
+"e": "2027-08-22",
+"loc": "Kyoto, Jepang",
+"fee": 13500000,
+"feeT": "± USD 650–850 termasuk iuran anggota ACL USD 100 (≈ Rp10,7–14 juta, perkiraan)",
+"dl": "Submisi lewat ARR: 4 Jan 2027",
+"recur": false,
+"reg": "Asia",
+"v": true,
+"top": true,
+"src": "https://2027.aclweb.org/"
+},
+{
+"n": "ICIP {Y} — IEEE Int. Conf. on Image Processing",
+"p": "IEEE Signal Processing Society",
+"url": "https://2027.ieeeicip.org/",
+"t": "conf",
+"idx": "Konferensi unggulan IEEE SPS · IEEE Xplore",
+"b": [
+"Ilmu Komputer",
+"Teknologi",
+"Kesehatan + Komputer"
+],
+"s": "2027-11-29",
+"e": "2027-12-03",
+"loc": "Singapura",
+"fee": 14500000,
+"feeT": "± USD 700–900 (≈ Rp11,5–14,9 juta, perkiraan; anggota IEEE lebih murah)",
+"dl": "Tenggat submisi belum diumumkan",
+"recur": false,
+"reg": "ASEAN",
+"v": true,
+"top": true,
+"src": "https://signalprocessingsociety.org/events/2027-ieee-international-conference-image-processing-icip"
+}
+]
+}

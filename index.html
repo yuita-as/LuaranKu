@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pencari Jurnal & Konferensi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: buletin akademik yang tenang, tepercaya, padat fakta.
+   IDEA: rak jurnal perpustakaan — kuartil sebagai tinggi punggung buku.
+   PICTURE: tangga kuartil Q1–Q4 berupa punggung jurnal di hero teal, lalu katalog kartu yang bisa disaring.
+   COLOUR and TYPE: putih, tinta #14161a, teal tua #0b5d63 sebagai bidang utama, kuning pucat untuk sorotan; Libre Caslon + Inter.
+   LAYOUT: hero teal penuh lebar (judul + cari | gambar), bilah filter lengket, grid kartu, panduan Q & SINTA. */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d1416);--ink:light-dark(#14161a,#e8eeef);--mute:light-dark(#5a6468,#97a6aa);--line:light-dark(#e2e7e8,#22302f);--card:light-dark(#ffffff,#121c1e);--soft:light-dark(#f3f7f7,#152224);--teal:#0b5d63;--teal2:light-dark(#0b5d63,#5cc3c9);--tint:light-dark(#e3f1f1,#16383a);--hi:light-dark(#fff1b8,#4a3f12);--warn:light-dark(#9a4a00,#ffb066);--ok:light-dark(#1f7a4d,#6fd7a4)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--teal2)}
+.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.serif{font-family:"Libre Caslon Text",Georgia,serif}
+.hero{background:#0b5d63;color:#f2fbfb}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero h1{font:400 clamp(32px,4.6vw,52px)/1.05 "Libre Caslon Text",Georgia,serif;margin:0 0 14px;text-wrap:balance}
+.hero p{margin:0 0 20px;color:#cfe9ea;max-width:60ch}
+.search{display:flex;gap:8px;background:#fff;border-radius:10px;padding:6px}
+.search input{border:0;background:transparent;color:#14161a;flex:1}
+.search input:focus-visible{outline:none}
+.search:focus-within{outline:3px solid #ffd84a}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font:500 14px Inter,sans-serif;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid #5aa3a7;background:transparent;color:#f2fbfb;cursor:pointer}
+.chip:hover{background:#0f6e75}
+.pic{position:relative;min-height:300px}
+.pic svg{position:absolute;inset:0;width:100%;height:100%}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #2c7a80;margin-top:28px;padding-top:18px;gap:12px}
+.stats b{display:block;font:400 clamp(26px,3vw,34px)/1.1 "Libre Caslon Text",serif;color:#fff}
+.stats span{font-size:14px;color:#cfe9ea}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{padding:12px max(5vw,16px) 12px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
+.tab{flex:none;font:600 14px Inter,sans-serif;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab small{opacity:.75;margin-left:6px;font-weight:500}
+.filters{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;align-items:end}
+label.f{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--mute)}
+input,select{font:16px Inter,sans-serif;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.search input{min-height:48px}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--teal2);outline-offset:2px}
+.chk{flex-direction:row;align-items:center;gap:8px;min-height:44px;color:var(--ink);font-size:14px}
+.chk input{width:20px;min-height:20px;accent-color:var(--teal)}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0 12px;color:var(--mute);font-size:14px}
+.btn{font:600 14px Inter,sans-serif;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,370px),1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card:hover{border-color:var(--teal2)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.bd{font:600 12.5px Inter,sans-serif;padding:3px 9px;border-radius:6px;white-space:nowrap;border:1px solid var(--line);background:var(--soft)}
+.bd.q1{background:#0b5d63;color:#fff;border-color:#0b5d63}
+.bd.q2{background:#3f8f94;color:#fff;border-color:#3f8f94}
+.bd.q3{background:var(--tint);color:var(--ink);border-color:var(--tint)}
+.bd.q4{background:transparent}
+.bd.s1{background:#ffd84a;color:#14161a;border-color:#ffd84a}
+.bd.s2{background:var(--hi);color:var(--ink);border-color:transparent}
+.bd.ft{color:var(--warn);border-color:currentColor;background:transparent}
+.bd.top{background:#14161a;color:#fff;border-color:#14161a}
+.card h3{margin:0;font:700 19px/1.25 "Libre Caslon Text",Georgia,serif}
+.card h3 a{color:inherit;text-decoration:none}.card h3 a:hover{text-decoration:underline}
+.pub{color:var(--mute);font-size:14px;margin-top:-8px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:var(--soft);border-radius:8px;padding:10px 12px}
+.trio dt{font-size:12.5px;color:var(--mute)}
+.trio dd{margin:2px 0 0;font-weight:700;font-size:14.5px;line-height:1.3}
+.meter{height:5px;background:var(--line);border-radius:3px;margin-top:5px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--teal2)}
+.card p{margin:0}.line{font-size:14px;margin:0}
+.line b{font-weight:600}
+.fields{font-size:13px;color:var(--mute);margin:0}
+.ver{font-size:12.5px;font-weight:600;margin:0}
+.ver.v{color:var(--ok)}.ver.e{color:var(--warn)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.links a{font:600 13.5px Inter,sans-serif;text-decoration:none;padding:7px 11px;border-radius:8px;border:1px solid var(--line);color:var(--ink)}
+.links a.main{background:var(--teal);border-color:var(--teal);color:#fff}
+.ev{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px}
+.cal{background:var(--teal);color:#fff;border-radius:10px;text-align:center;padding:10px 4px;align-self:start}
+.cal b{display:block;font:400 30px/1 "Libre Caslon Text",serif}
+.cal span{font-size:13px;display:block;margin-top:4px}
+.cal small{display:block;font-size:12px;opacity:.85}
+.cd{font-size:13px;font-weight:600;color:var(--teal2)}
+.empty{padding:48px 20px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:12px}
+.guide{background:var(--soft);border-top:1px solid var(--line)}
+.guide h2{font:400 clamp(28px,3.4vw,38px)/1.1 "Libre Caslon Text",serif;margin:0 0 10px;text-wrap:balance}
+.guide h3{font:700 18px "Libre Caslon Text",serif;margin:26px 0 8px}
+.guide p,.guide li{max-width:72ch}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,48px)}
+table{border-collapse:collapse;width:100%;background:var(--card);border-radius:10px;overflow:hidden;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--teal);color:#fff;font-weight:600}
+.callout{background:var(--card);border-left:4px solid #ffd84a;padding:14px 16px;border-radius:6px;margin-top:16px}
+footer{font-size:14px;color:var(--mute)}
+.past{opacity:.6}
+@media(max-width:1100px){.filters{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.pic{min-height:220px}.cols{grid-template-columns:1fr}}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.bar{position:static}.trio{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 12px;padding-inline-start:8.5em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--mute);font-weight:600}.stack td:empty{display:none}}
+@media(prefers-reduced-motion:no-preference){.card{animation:rise .3s ease both}@keyframes rise{from{opacity:0;transform:translateY(6px)}}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<header class="band hero">
+  <div class="wrap">
+    <div>
+      <h1>Cari jurnal bereputasi, konferensi & seminar <span id="yr"></span></h1>
+      <p>Jurnal nasional dan internasional di bidang komputer, informatika, IT, serta soshum, sainteks dan kesehatan yang beririsan dengan komputer, lengkap dengan Q SCImago, Q Scopus, SINTA, APC, acceptance rate dan durasi review. Konferensi di Indonesia, ASEAN dan Asia dengan biaya registrasi hingga Rp15 juta.</p>
+      <div class="search" role="search"><input id="q" type="search" placeholder="Cari: machine learning, kesehatan, UGM, Bandung…" aria-label="Cari"></div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="pic" aria-hidden="true">
+      <svg viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="sp" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".25" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></linearGradient>
+        </defs>
+        <rect x="10" y="268" width="440" height="14" rx="3" fill="#073f43"/>
+        <rect x="10" y="266" width="440" height="3" fill="#2c8a90"/>
+        <g id="books"></g>
+      </svg>
+    </div>
+    <div class="stats" id="stats" style="grid-column:1/-1"></div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="filters" autocomplete="off">
+      <label class="f">Bidang<select id="bid"><option value="">Semua bidang</option></select></label>
+      <label class="f">Acuan kuartil<select id="qsrc"><option value="sjr">SCImago (SJR)</option><option value="cs">Scopus (CiteScore)</option></select></label>
+      <label class="f">Kuartil<select id="qv"><option value="">Semua</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option></select></label>
+      <label class="f">SINTA<select id="sinta"><option value="">Semua</option><option value="1">SINTA 1</option><option value="2">SINTA 2</option><option value="12">SINTA 1–2</option></select></label>
+      <label class="f">Wilayah acara<select id="reg"><option value="">Semua wilayah</option><option>Indonesia</option><option>ASEAN</option><option>Asia</option><option value="luar">Luar Indonesia (ASEAN + Asia)</option></select></label>
+      <label class="f">Biaya maksimal<select id="max"><option value="15000000">≤ Rp15 juta</option><option value="10000000">≤ Rp10 juta</option><option value="5000000">≤ Rp5 juta</option><option value="1000000">≤ Rp1 juta</option><option value="0">Gratis</option></select></label>
+      <label class="f">Urutkan<select id="sort"><option value="rank">Reputasi tertinggi</option><option value="ar">Acceptance rate tertinggi</option><option value="dur">Durasi tercepat</option><option value="fee">Biaya termurah</option><option value="date">Tanggal terdekat</option></select></label>
+    </div>
+  </div>
+</div>
+
+<main class="band wrap" style="padding-top:8px">
+  <div class="meta"><span id="count">Memuat data…</span>
+    <span style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <label class="f chk"><input id="ft" type="checkbox"> Hanya fast track</label>
+      <label class="f chk"><input id="past" type="checkbox"> Tampilkan acara yang sudah lewat</label>
+      <button class="btn" id="reset">Reset filter</button><button class="btn" id="copy">Salin hasil (CSV)</button>
+    </span>
+  </div>
+  <div class="grid" id="list"></div>
+</main>
+
+<section class="band guide" id="panduan">
+  <div class="wrap">
+    <h2>Q Scopus, Q SCImago, dan SINTA: mana yang diminta luaran?</h2>
+    <p>Satu jurnal bisa tertulis <b>Q1 di Scopus</b> tetapi <b>Q2 di SCImago</b>. Keduanya memakai data Scopus, namun metrik dan cara pengelompokannya berbeda. Karena itu setiap kartu di atas menampilkan keduanya.</p>
+    <div class="scroll" style="margin-top:18px">
+    <table class="stack">
+      <thead><tr><th>Aspek</th><th>Q SCImago (SJR)</th><th>Q Scopus (CiteScore)</th><th>Q Web of Science (JIF)</th></tr></thead>
+      <tbody>
+        <tr><td>Metrik</td><td>SJR — sitasi berbobot prestise jurnal pengutip, jendela 3 tahun</td><td>CiteScore — total sitasi 4 tahun ÷ jumlah dokumen 4 tahun</td><td>Journal Impact Factor — sitasi 2 tahun</td></tr>
+        <tr><td>Cara menentukan Q</td><td>Peringkat SJR dibagi 4 per kategori subjek (Q1 = 25% teratas)</td><td>Persentil per bidang: Q1 = persentil 75–99, Q2 = 50–74, Q3 = 25–49, Q4 = 0–24</td><td>Peringkat JIF dibagi 4 per kategori JCR</td></tr>
+        <tr><td>Tempat cek</td><td><a href="https://www.scimagojr.com/">scimagojr.com</a> (gratis)</td><td><a href="https://www.scopus.com/sources">scopus.com/sources</a> (gratis, tab CiteScore)</td><td><a href="https://jcr.clarivate.com/">JCR Clarivate</a> (berlangganan) / <a href="https://mjl.clarivate.com/">Master Journal List</a></td></tr>
+        <tr><td>Pembaruan</td><td>Setahun sekali (sekitar pertengahan tahun)</td><td>Setahun sekali (sekitar Juni) + CiteScore Tracker bulanan</td><td>Setahun sekali (sekitar Juni)</td></tr>
+        <tr><td>Biasa dipakai</td><td>Pedoman angka kredit / kenaikan jabatan dosen dan banyak luaran hibah di Indonesia</td><td>Sebagian luaran hibah, beasiswa, dan klaim di situs jurnal</td><td>Penilaian internasional dan beberapa kampus luar negeri</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout"><b>Tips untuk luaran:</b> baca dulu acuan mana yang diminta panduan hibah atau luaran Anda. Jika tertulis “jurnal internasional bereputasi Q1–Q2” tanpa sumber, umumnya yang dicek adalah <b>kuartil SJR di SCImago</b> pada kategori yang sesuai dengan topik artikel. Satu jurnal bisa masuk beberapa kategori dengan Q berbeda. Simpan tangkapan layar halaman SCImago atau Scopus pada tahun terbit sebagai bukti. Jangan pakai klaim kuartil di situs jurnal tanpa mengeceknya sendiri.</div>
+    <div class="cols">
+      <div>
+        <h3>Peringkat SINTA</h3>
+        <p>SINTA adalah peringkat akreditasi jurnal nasional dari Kemdiktisaintek: SINTA 1 (tertinggi, nilai akreditasi ≥ 85), SINTA 2 (70–85), lalu turun sampai SINTA 6. Situs ini fokus pada SINTA 1 dan 2. Peringkat berlaku untuk periode terbitan tertentu, jadi cek periode akreditasi terbaru di <a href="https://sinta.kemdiktisaintek.go.id/journals">SINTA</a> sebelum submit.</p>
+      </div>
+      <div>
+        <h3>Angka di kartu</h3>
+        <p><b>Acceptance rate</b> dan <b>durasi desk review → accepted</b> adalah kisaran perkiraan dari pola umum jurnal tersebut, kecuali kartu ditandai “Terverifikasi”. Jurnal Q1 hampir selalu ber-acceptance rate rendah. Untuk jurnal Elsevier, angka resminya bisa dilihat di halaman “Journal Insights” jurnal tersebut. Kurs acuan: 1 USD ≈ Rp16.500.</p>
+      </div>
+      <div>
+        <h3>Tahun berjalan otomatis</h3>
+        <p>Tahun di halaman ini mengikuti tanggal di perangkat Anda. Untuk konferensi dan seminar tahunan yang edisi terakhirnya sudah lewat, tanggalnya otomatis digeser ke edisi berikutnya dan diberi label “perkiraan” sampai panitia mengumumkan tanggal resmi.</p>
+      </div>
+      <div>
+        <h3>Waspada</h3>
+        <p>Hindari jasa “garansi 100% terbit” atau “LoA 3–7 hari”. Fast track yang sah tetap melalui peer review penuh; yang dipercepat hanya antreannya. Selalu submit lewat situs resmi jurnal dan cocokkan ISSN-nya dengan SINTA atau Scopus agar tidak tertipu jurnal hijacked.</p>
+      </div>
+    </div>
+    <footer style="margin-top:30px" id="upd"></footer>
+  </div>
+</section>
+
+<script type="application/json" id="seed">{"updated": "2026-11-24", "kurs": {"USD": 16500, "EUR": 18000}, "journals": [{"n": "Expert Systems with Applications", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/expert-systems-with-applications", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Ilmu Komputer", "Informatika"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 15], "dur": [90, 210], "top": true}, {"n": "Knowledge-Based Systems", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/knowledge-based-systems", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Ilmu Komputer", "Informatika"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 15], "dur": [90, 210], "top": true}, {"n": "Applied Soft Computing", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/applied-soft-computing", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Ilmu Komputer", "Informatika"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [12, 18], "dur": [90, 180], "top": true}, {"n": "Information Processing & Management", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/information-processing-and-management", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Sistem Informasi", "Ilmu Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 15], "dur": [100, 210], "top": true}, {"n": "Computer Networks", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/computer-networks", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["IT Support / Jaringan", "Teknologi"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [15, 22], "dur": [100, 210], "top": true}, {"n": "Computers & Security", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/computers-and-security", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["IT Support / Jaringan", "Ilmu Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [15, 22], "dur": [90, 180], "top": true}, {"n": "Computers in Human Behavior", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/computers-in-human-behavior", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SSCI Q1", "b": ["Soshum + Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 15], "dur": [120, 210], "top": true}, {"n": "Computers & Education", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/computers-and-education", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SSCI Q1", "b": ["Soshum + Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [8, 12], "dur": [120, 240], "top": true}, {"n": "Telematics and Informatics", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/telematics-and-informatics", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SSCI Q1", "b": ["Soshum + Komputer", "Teknologi"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 15], "dur": [100, 200], "top": true}, {"n": "International Journal of Medical Informatics", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/international-journal-of-medical-informatics", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Kesehatan + Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [15, 25], "dur": [90, 180], "top": true}, {"n": "Journal of Biomedical Informatics", "p": "Elsevier", "url": "https://www.sciencedirect.com/journal/journal-of-biomedical-informatics", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q1", "b": ["Kesehatan + Komputer", "Ilmu Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [12, 20], "dur": [90, 180], "top": true}, {"n": "Education and Information Technologies", "p": "Springer", "url": "https://link.springer.com/journal/10639", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SSCI Q1", "b": ["Soshum + Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [15, 25], "dur": [90, 180], "top": true}, {"n": "Interactive Learning Environments", "p": "Taylor & Francis", "url": "https://www.tandfonline.com/journals/nile20", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SSCI Q1", "b": ["Soshum + Komputer"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [10, 20], "dur": [120, 240], "top": true}, {"n": "Neural Computing and Applications", "p": "Springer", "url": "https://link.springer.com/journal/521", "sc": "int", "sinta": null, "sjr": "Q1", "cs": "Q1", "wos": "SCIE Q2", "b": ["Ilmu Komputer", "Informatika"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [15, 25], "dur": [90, 200], "top": true}, {"n": "Soft Computing", "p": "Springer", "url": "https://link.springer.com/journal/500", "sc": "int", "sinta": null, "sjr": "Q2", "cs": "Q1", "wos": "SCIE Q2", "b": ["Ilmu Komputer", "Informatika"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [18, 28], "dur": [90, 210]}, {"n": "The Journal of Supercomputing", "p": "Springer", "url": "https://link.springer.com/journal/11227", "sc": "int", "sinta": null, "sjr": "Q2", "cs": "Q1", "wos": "SCIE Q2", "b": ["Ilmu Komputer", "Teknologi"], "apc": 0, "apcT": "Rp0 lewat jalur langganan (non-OA)", "ar": [20, 30], "dur": [90, 180]}, {"n": "Indonesian Journal of Science and Technology (IJOST)", "p": "Universitas Pendidikan Indonesia", "url": "https://ejournal.upi.edu/index.php/ijost", "sc": "int", "sinta": 1, "sjr": "Q1", "cs": "Q1", "wos": "ESCI", "b": ["Sainteks", "Teknologi"], "apc": 0, "apcT": "Umumnya tanpa APC (cek kebijakan terbaru)", "ar": [15, 25], "dur": [60, 120], "top": true}, {"n": "International Journal of Advances in Intelligent Informatics (IJAIN)", "p": "Universitas Ahmad Dahlan & ASCEE", "url": "https://ijain.org", "sc": "int", "sinta": 1, "sjr": "Q2", "cs": "Q2", "wos": "ESCI", "b": ["Ilmu Komputer", "Informatika"], "apc": 6000000, "apcT": "± Rp4–7 juta (cek)", "ar": [10, 20], "dur": [90, 150]}, {"n": "TELKOMNIKA (Telecommunication Computing Electronics and Control)", "p": "Universitas Ahmad Dahlan", "url": "https://telkomnika.uad.ac.id", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q2", "wos": null, "b": ["Teknologi", "Informatika", "IT Support / Jaringan"], "apc": 7000000, "apcT": "± Rp5–8 juta (cek)", "ar": [20, 30], "dur": [60, 120]}, {"n": "Bulletin of Electrical Engineering and Informatics (BEEI)", "p": "IAES", "url": "https://beei.org", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q2", "wos": null, "b": ["Informatika", "Teknologi"], "apc": 8000000, "apcT": "± Rp7–9 juta (cek)", "ar": [20, 30], "dur": [60, 120]}, {"n": "JOIV: International Journal on Informatics Visualization", "p": "Politeknik Negeri Padang dkk.", "url": "https://joiv.org", "sc": "int", "sinta": 2, "sjr": "Q3", "cs": "Q2", "wos": null, "b": ["Informatika", "Teknologi"], "apc": 8000000, "apcT": "± Rp6–9 juta (cek)", "ar": [25, 35], "dur": [60, 120]}, {"n": "Journal of ICT Research and Applications", "p": "Institut Teknologi Bandung", "url": "https://journals.itb.ac.id/index.php/jictra", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q3", "wos": "ESCI", "b": ["Ilmu Komputer", "Teknologi"], "apc": 0, "apcT": "Rp0 – rendah (cek situs)", "ar": [20, 30], "dur": [90, 150]}, {"n": "Journal of Information Systems Engineering and Business Intelligence (JISEBI)", "p": "Universitas Airlangga", "url": "https://e-journal.unair.ac.id/JISEBI", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q3", "wos": null, "b": ["Sistem Informasi", "Soshum + Komputer"], "apc": 0, "apcT": "Rp0 – rendah (cek situs)", "ar": [20, 30], "dur": [75, 120]}, {"n": "International Journal of Evaluation and Research in Education (IJERE)", "p": "IAES", "url": "https://ijere.iaescore.com", "sc": "int", "sinta": 2, "sjr": "Q3", "cs": "Q2", "wos": null, "b": ["Soshum + Komputer"], "apc": 7000000, "apcT": "± Rp6–8 juta (cek)", "ar": [20, 30], "dur": [60, 120]}, {"n": "Kesmas: Jurnal Kesehatan Masyarakat Nasional", "p": "FKM Universitas Indonesia", "url": "https://scholarhub.ui.ac.id/kesmas/", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q3", "wos": "ESCI", "b": ["Kesehatan + Komputer"], "apc": 0, "apcT": "Rp0 – rendah (cek situs)", "ar": [15, 25], "dur": [90, 150]}, {"n": "Jurnal Ners", "p": "Universitas Airlangga", "url": "https://e-journal.unair.ac.id/JNERS", "sc": "int", "sinta": 1, "sjr": "Q3", "cs": "Q3", "wos": "ESCI", "b": ["Kesehatan + Komputer"], "apc": 3000000, "apcT": "± Rp2–4 juta (cek)", "ar": [20, 30], "dur": [60, 120]}, {"n": "Register: Jurnal Ilmiah Teknologi Sistem Informasi", "p": "Universitas Pesantren Tinggi Darul Ulum", "url": "https://journal.unipdu.ac.id/index.php/register", "sc": "nas", "sinta": 2, "sjr": "Q3", "cs": "Q3", "wos": null, "b": ["Sistem Informasi", "Informatika"], "apc": 4000000, "apcT": "Biaya penulis + opsi fast track (cek)", "ar": [25, 35], "dur": [30, 90], "ft": "Ada — 2–3 putaran revisi setelah review awal", "v": true, "src": "https://forum.relawanjurnal.id/viewtopic.php?p=5472"}, {"n": "Jurnal Ilmu Komputer dan Informasi (JIKI)", "p": "Fasilkom Universitas Indonesia", "url": "https://jiki.cs.ui.ac.id", "sc": "nas", "sinta": 1, "sjr": null, "cs": null, "wos": null, "b": ["Ilmu Komputer"], "apc": 0, "apcT": "Rp0 (cek)", "ar": [25, 35], "dur": [90, 150]}, {"n": "Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)", "p": "Ikatan Ahli Informatika Indonesia", "url": "https://jurnal.iaii.or.id/index.php/RESTI", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika", "Sistem Informasi"], "apc": 1500000, "apcT": "± Rp1–2 juta (cek)", "ar": [30, 40], "dur": [45, 90]}, {"n": "IJCCS (Indonesian Journal of Computing and Cybernetics Systems)", "p": "Universitas Gadjah Mada", "url": "https://jurnal.ugm.ac.id/ijccs", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Ilmu Komputer"], "apc": 0, "apcT": "Rp0 – rendah (cek)", "ar": [25, 35], "dur": [90, 150]}, {"n": "JNTETI (Jurnal Nasional Teknik Elektro dan Teknologi Informasi)", "p": "Universitas Gadjah Mada", "url": "https://jurnal.ugm.ac.id/v3/JNTETI", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Teknologi", "Informatika"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [25, 35], "dur": [90, 120]}, {"n": "Lontar Komputer: Jurnal Ilmiah Teknologi Informasi", "p": "Universitas Udayana", "url": "https://ojs.unud.ac.id/index.php/lontar", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Ilmu Komputer"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [30, 40], "dur": [60, 120]}, {"n": "Jurnal Teknologi dan Sistem Komputer (JTSiskom)", "p": "Universitas Diponegoro", "url": "https://jtsiskom.undip.ac.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Teknologi", "Ilmu Komputer"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [25, 35], "dur": [60, 120]}, {"n": "Kinetik: Game Technology, Information System, Computer Network, Computing, Electronics, and Control", "p": "Universitas Muhammadiyah Malang", "url": "https://kinetik.umm.ac.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika", "IT Support / Jaringan"], "apc": 1500000, "apcT": "± Rp1–2 juta (cek)", "ar": [30, 40], "dur": [60, 90]}, {"n": "Scientific Journal of Informatics (SJI)", "p": "Universitas Negeri Semarang", "url": "https://journal.unnes.ac.id/nju/index.php/sji", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika"], "apc": 500000, "apcT": "Rp0 – rendah (cek)", "ar": [30, 40], "dur": [60, 120]}, {"n": "JUITA: Jurnal Informatika", "p": "Universitas Muhammadiyah Purwokerto", "url": "https://jurnalnasional.ump.ac.id/index.php/JUITA", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [30, 40], "dur": [60, 120]}, {"n": "MATRIK: Jurnal Manajemen, Teknik Informatika dan Rekayasa Komputer", "p": "Universitas Bumigora", "url": "https://journal.universitasbumigora.ac.id/index.php/matrik", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika", "Teknologi"], "apc": 1500000, "apcT": "± Rp1–2 juta (cek)", "ar": [30, 40], "dur": [45, 90]}, {"n": "Jurnal Teknologi Informasi dan Ilmu Komputer (JTIIK)", "p": "Universitas Brawijaya", "url": "https://jtiik.ub.ac.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Ilmu Komputer", "Sistem Informasi"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [25, 35], "dur": [90, 150]}, {"n": "Khazanah Informatika", "p": "Universitas Muhammadiyah Surakarta", "url": "https://journals.ums.ac.id/index.php/khif", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [30, 40], "dur": [60, 120]}, {"n": "Jurnal Sistem Informasi (Journal of Information Systems)", "p": "Fasilkom Universitas Indonesia", "url": "https://jsi.cs.ui.ac.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Sistem Informasi", "Soshum + Komputer"], "apc": 0, "apcT": "Rp0 – rendah (cek)", "ar": [25, 35], "dur": [90, 150]}, {"n": "JITEKI (Jurnal Ilmiah Teknik Elektro Komputer dan Informatika)", "p": "Universitas Ahmad Dahlan", "url": "https://journal.uad.ac.id/index.php/JITEKI", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Teknologi", "Informatika"], "apc": 1500000, "apcT": "± Rp1–2 juta (cek)", "ar": [25, 35], "dur": [60, 120]}, {"n": "JUTIF (Jurnal Teknik Informatika)", "p": "Universitas Jenderal Soedirman", "url": "https://jutif.if.unsoed.ac.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Informatika", "Ilmu Komputer"], "apc": 1000000, "apcT": "± Rp0,5–1,5 juta (cek)", "ar": [35, 45], "dur": [90, 150], "note": "Naskah yang masuk sejak Juni 2026 diproses untuk terbitan April 2027", "v": true, "src": "https://jutif.if.unsoed.ac.id/index.php/jurnal/announcement/view/11"}, {"n": "Jurnal Manajemen Informasi Kesehatan Indonesia (JMIKI)", "p": "APTIRMIKI", "url": "https://jmiki.aptirmik.or.id", "sc": "nas", "sinta": 2, "sjr": null, "cs": null, "wos": null, "b": ["Kesehatan + Komputer"], "apc": 750000, "apcT": "± Rp0,5–1 juta (cek)", "ar": [35, 45], "dur": [60, 120]}, {"n": "JUSIFOR: Jurnal Sistem Informasi dan Informatika", "p": "Universitas Islam Raden Rahmat Malang", "url": "https://ejournal.uniramalang.ac.id/jusifor", "sc": "nas", "sinta": null, "sintaT": "Cek di SINTA", "sjr": null, "cs": null, "wos": null, "b": ["Sistem Informasi", "Informatika"], "apc": 850000, "apcT": "Submit gratis; fast track opsional Rp850.000 (di luar biaya terbit)", "ar": [45, 60], "dur": [30, 60], "ft": "Ada — Rp850.000, tetap lewat review & revisi", "v": true, "src": "https://ejournal.uniramalang.ac.id/jusifor/biaya_publikasi/index"}], "events": [{"n": "ICGHIT {Y} — Int. Conf. on Green and Human Information Technology", "p": "Politeknik Negeri Jakarta", "url": "https://icghit.org/", "t": "conf", "idx": "Internasional · blind peer review", "b": ["Ilmu Komputer", "Teknologi"], "s": "2027-01-20", "e": "2027-01-23", "loc": "Depok, Jawa Barat", "fee": 7500000, "feeT": "± Rp6–9 juta (perkiraan)", "dl": "Submisi 2027 ditutup 6 Nov 2026 · notifikasi 18 Des 2026", "recur": true, "v": true, "src": "https://easychair.org/cfp/ICGHIT2027", "reg": "Indonesia"}, {"n": "ICIMPACT {Y} — Intelligent Multimedia, Physical-AI & Cyber-Technologies", "p": "Telkom University", "url": "https://icimpact.telkomuniversity.ac.id/", "t": "conf", "idx": "Internasional · hybrid", "b": ["Ilmu Komputer", "Teknologi"], "s": "2027-02-03", "e": "2027-02-05", "loc": "Bandung (hybrid)", "fee": 6000000, "feeT": "± Rp4–7 juta (perkiraan)", "dl": "Cek tenggat di situs", "recur": true, "v": true, "src": "https://icimpact.telkomuniversity.ac.id/", "reg": "Indonesia"}, {"n": "ACIIDS {Y} — Asian Conf. on Intelligent Information and Database Systems", "p": "Wrocław Univ. of Science & Technology · IEEE CS Indonesia · BINUS", "url": "http://aciids.pwr.edu.pl/2027", "t": "conf", "idx": "CORE B · Springer LNAI/CCIS", "b": ["Ilmu Komputer", "Informatika"], "s": "2027-04-05", "e": "2027-04-07", "loc": "Bali", "fee": 9900000, "feeT": "± EUR 500–600 (≈ Rp9–11 juta, batas atas)", "dl": "Cek tenggat di situs", "recur": false, "v": true, "top": true, "src": "https://easychair.org/cfp/ACIIDS2027", "reg": "Indonesia"}, {"n": "ICSINTEXA {Y} — Smart Innovation, Intelligent Networks, Technological Excellence & Automation", "p": "Universitas Balikpapan", "url": "https://icsintexa.uniba-bpn.ac.id/", "t": "conf", "idx": "Internasional · edisi perdana · hybrid", "b": ["Informatika", "IT Support / Jaringan", "Teknologi"], "s": "2027-04-14", "e": "2027-04-15", "loc": "Balikpapan, Kalimantan Timur", "fee": 4000000, "feeT": "± Rp3–5 juta (perkiraan)", "dl": "Cek tenggat di situs", "recur": true, "v": true, "src": "https://icsintexa.uniba-bpn.ac.id/", "reg": "Indonesia"}, {"n": "ISITIA {Y} — Int. Seminar on Intelligent Technology and Its Applications", "p": "Departemen Teknik Elektro ITS", "url": "https://elib.its.ac.id/conf/isitia", "t": "conf", "idx": "IEEE Xplore · Scopus", "b": ["Teknologi", "Informatika"], "s": "2026-07-22", "e": "2026-07-24", "loc": "Bali / Surabaya (hybrid)", "fee": 6000000, "feeT": "Domestik Rp5–6 juta; internasional USD 450–550 (edisi 2026)", "dl": "CFP biasanya dibuka awal tahun", "recur": true, "v": true, "src": "https://www.its.ac.id/telektro/isitia/registration/", "reg": "Indonesia"}, {"n": "IC3INA {Y} — Computer, Control, Informatics and its Applications", "p": "BRIN", "url": "https://conference.brin.go.id/", "t": "conf", "idx": "IEEE Xplore", "b": ["Ilmu Komputer", "Informatika"], "s": "2026-09-03", "e": "2026-09-05", "loc": "Lombok (edisi 2026) — cek lokasi terbaru", "fee": 5000000, "feeT": "± Rp4–6 juta (perkiraan)", "dl": "Pantau conference.brin.go.id", "recur": true, "v": true, "src": "https://conference.brin.go.id/ic3ina2026/", "reg": "Indonesia"}, {"n": "ICACSIS {Y} — Advanced Computer Science and Information Systems", "p": "Fasilkom Universitas Indonesia", "url": "https://icacsis.cs.ui.ac.id/", "t": "conf", "idx": "IEEE Xplore · Scopus", "b": ["Ilmu Komputer", "Sistem Informasi"], "s": "2026-10-16", "e": "2026-10-18", "loc": "Depok / Indonesia", "fee": 6000000, "feeT": "± Rp5–7 juta (perkiraan)", "dl": "CFP biasanya Mei–Juli", "recur": true, "v": true, "src": "https://icacsis.cs.ui.ac.id/front/?p=2917", "reg": "Indonesia"}, {"n": "ICELTICs {Y} — Electrical Engineering and Informatics", "p": "Informatika USK · APTIKOM · IEEE Indonesia Section", "url": "https://iceltics.usk.ac.id/", "t": "conf", "idx": "IEEE Xplore", "b": ["Informatika", "Teknologi"], "s": "2026-10-28", "e": "2026-10-29", "loc": "Banda Aceh", "fee": 5000000, "feeT": "± Rp4–6 juta (perkiraan)", "dl": "Pantau situs", "recur": true, "v": true, "src": "https://iceltics.usk.ac.id/cfp", "reg": "Indonesia"}, {"n": "SENATIB {Y} — Seminar Nasional Teknologi Informasi dan Bisnis", "p": "Fakultas Ilmu Komputer Universitas Duta Bangsa Surakarta", "url": "https://ojs.udb.ac.id/index.php/senatib", "t": "sem", "idx": "Prosiding ISSN 2962-1968", "b": ["Informatika", "Sistem Informasi", "Soshum + Komputer"], "s": "2026-07-25", "e": "2026-07-25", "loc": "Surakarta", "fee": 400000, "feeT": "± Rp250–500 ribu (perkiraan)", "dl": "Pantau OJS SENATIB", "recur": true, "v": true, "src": "https://ojs.udb.ac.id/index.php/senatib", "reg": "Indonesia"}, {"n": "SNISTEK {Y} — Seminar Nasional Ilmu Sosial dan Teknologi", "p": "Universitas Putera Batam", "url": "https://ejournal.upbatam.ac.id/index.php/prosiding", "t": "sem", "idx": "Prosiding", "b": ["Soshum + Komputer", "Teknologi"], "s": "2025-08-22", "e": "2025-08-23", "loc": "Batam (hybrid)", "fee": 350000, "feeT": "± Rp250–500 ribu (perkiraan)", "dl": "CFP biasanya Juni", "recur": true, "v": true, "src": "https://ejournal.upbatam.ac.id/index.php/prosiding/announcement/view/39", "reg": "Indonesia"}, {"n": "SEMASTER {Y} — Seminar Nasional Teknologi Informasi & Ilmu Komputer", "p": "Universitas Lancang Kuning", "url": "https://journal.unilak.ac.id/index.php/Semaster", "t": "sem", "idx": "Prosiding", "b": ["Informatika", "Ilmu Komputer"], "s": "2025-11-15", "e": "2025-11-15", "loc": "Pekanbaru", "fee": 350000, "feeT": "± Rp250–500 ribu (perkiraan)", "dl": "Tanggal perkiraan — pantau arsip prosiding", "recur": true, "v": false, "src": "https://journal.unilak.ac.id/index.php/Semaster/issue/archive", "reg": "Indonesia"}, {"n": "APSEC {Y} — Asia-Pacific Software Engineering Conference", "p": "Komunitas APSEC (IEEE)", "url": "https://conf.researchr.org/home/apsec-2026", "t": "conf", "idx": "Konferensi rekayasa perangkat lunak Asia-Pasifik · IEEE", "b": ["Ilmu Komputer", "Sistem Informasi"], "s": "2026-12-07", "e": "2026-12-10", "loc": "Sheraton Bali Kuta Resort, Bali (lokasi berpindah tiap tahun)", "fee": 13680000, "feeT": "USD 600–860 (Rp10,8–15,5 juta); kini tarif on-site Rp13,7 jt (IEEE) / Rp15,5 jt (non-member)", "dl": "Registrasi early & late sudah ditutup; tersisa on-site", "recur": true, "reg": "Indonesia", "v": true, "top": true, "src": "https://conf.researchr.org/attending/apsec-2026/registration"}, {"n": "ICOIN {Y} — Int. Conf. on Information Networking", "p": "KIISE (Korea) · IEEE & IEICE technical co-sponsor", "url": "https://icoin.org", "t": "conf", "idx": "IEEE Xplore (technical co-sponsor) · QUALIS B1", "b": ["IT Support / Jaringan", "Teknologi"], "s": "2027-01-13", "e": "2027-01-15", "loc": "Nha Trang, Vietnam", "fee": 10500000, "feeT": "± USD 550–700 (≈ Rp9–11,5 juta, perkiraan — cek icoin.org)", "dl": "Submisi 2027 ditutup 18 Sep 2026", "recur": true, "reg": "ASEAN", "v": true, "src": "https://www.computer.org/conferences/cfp-ieee-icoin-2027"}, {"n": "SEATUC {Y} — Southeast Asian Technical University Consortium Symposium", "p": "Hanoi University of Science and Technology · konsorsium SEATUC", "url": "https://www.shibaura-it.ac.jp/assets/SEATUC2027CFP.pdf", "t": "conf", "idx": "Simposium regional ASEAN–Jepang (cek prosiding)", "b": ["Ilmu Komputer", "Teknologi", "Soshum + Komputer"], "s": "2027-03-01", "e": "2027-03-02", "loc": "Hanoi, Vietnam", "fee": 3300000, "feeT": "USD 200 per makalah pertama (≈ Rp3,3 juta)", "dl": "Abstrak ditutup Sep–Okt 2026", "recur": true, "reg": "ASEAN", "v": true, "src": "https://www.shibaura-it.ac.jp/assets/SEATUC2027CFP.pdf"}, {"n": "KST {Y} — Int. Conf. on Knowledge and Smart Technology", "p": "IEEE Thailand Section (Computer Chapter) · Burapha University · Tokyo Metropolitan University", "url": "https://kst.buu.ac.th/", "t": "conf", "idx": "IEEE technical co-sponsor (diajukan ke IEEE Xplore)", "b": ["Ilmu Komputer", "Informatika"], "s": "2027-03-17", "e": "2027-03-20", "loc": "Tokyo Metropolitan University, Jepang", "fee": 8300000, "feeT": "THB 15.500–17.000 (≈ Rp7,6–8,3 juta)", "dl": "Early-bird 10–25 Jan 2027", "recur": true, "reg": "Asia", "v": true, "src": "https://kst.buu.ac.th/2027/Registration-policy.php"}, {"n": "ICCIES {Y} — Int. Conf. on Computational Intelligence and Engineering Systems", "p": "Ton Duc Thang University", "url": "https://iccies.tdtu.edu.vn/2027/", "t": "conf", "idx": "Springer CCIS", "b": ["Ilmu Komputer", "Informatika"], "s": "2027-04-15", "e": "2027-04-17", "loc": "Ho Chi Minh City, Vietnam", "fee": 5000000, "feeT": "USD 250–300 (≈ Rp4,1–5 juta)", "dl": "Registrasi & pembayaran paling lambat 30 Jan 2027", "recur": true, "reg": "ASEAN", "v": true, "src": "https://iccies.tdtu.edu.vn/2027/?p=6726"}, {"n": "IC2IT {Y} — Int. Conf. on Computing and Information Technology", "p": "KMUTNB, Thailand", "url": "https://ic2it.org/", "t": "conf", "idx": "Springer", "b": ["Ilmu Komputer", "Informatika"], "s": "2027-05-13", "e": "2027-05-14", "loc": "Bangkok, Thailand", "fee": 8000000, "feeT": "± USD 400–500 (≈ Rp6,6–8,3 juta, perkiraan)", "dl": "Cek di EasyChair IC2IT 2027", "recur": true, "reg": "ASEAN", "v": true, "src": "https://easychair.org/cfp/ic2it2027"}, {"n": "JCSSE {Y} — Int. Joint Conf. on Computer Science and Software Engineering", "p": "Mae Fah Luang University · CSCRN", "url": "https://jcsse2027.mfu.ac.th/", "t": "conf", "idx": "Edisi sebelumnya di IEEE Xplore (cek edisi ini)", "b": ["Ilmu Komputer", "Sistem Informasi"], "s": "2027-06-16", "e": "2027-06-18", "loc": "Chiang Rai, Thailand", "fee": 8000000, "feeT": "± USD 400–500 (≈ Rp6,6–8,3 juta, perkiraan)", "dl": "Submisi putaran 2: 22 Jan 2027 · early registration 23 Apr 2027", "recur": true, "reg": "ASEAN", "v": true, "src": "https://jcsse2027.mfu.ac.th/"}, {"n": "ACL {Y} — Annual Meeting of the Association for Computational Linguistics", "p": "Association for Computational Linguistics", "url": "https://2027.aclweb.org/", "t": "conf", "idx": "CORE A* · ACL Anthology", "b": ["Ilmu Komputer", "Informatika"], "s": "2027-08-17", "e": "2027-08-22", "loc": "Kyoto, Jepang", "fee": 13500000, "feeT": "± USD 650–850 termasuk iuran anggota ACL USD 100 (≈ Rp10,7–14 juta, perkiraan)", "dl": "Submisi lewat ARR: 4 Jan 2027", "recur": false, "reg": "Asia", "v": true, "top": true, "src": "https://2027.aclweb.org/"}, {"n": "ICIP {Y} — IEEE Int. Conf. on Image Processing", "p": "IEEE Signal Processing Society", "url": "https://2027.ieeeicip.org/", "t": "conf", "idx": "Konferensi unggulan IEEE SPS · IEEE Xplore", "b": ["Ilmu Komputer", "Teknologi", "Kesehatan + Komputer"], "s": "2027-11-29", "e": "2027-12-03", "loc": "Singapura", "fee": 14500000, "feeT": "± USD 700–900 (≈ Rp11,5–14,9 juta, perkiraan; anggota IEEE lebih murah)", "dl": "Tenggat submisi belum diumumkan", "recur": false, "reg": "ASEAN", "v": true, "top": true, "src": "https://signalprocessingsociety.org/events/2027-ieee-international-conference-image-processing-icip"}]}</script>
+<script>
+{
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const NOW=new Date();NOW.setHours(0,0,0,0);const Y=NOW.getFullYear();
+const BLN=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const fmt=d=>`${d.getDate()} ${BLN[d.getMonth()]} ${d.getFullYear()}`;
+const qn=q=>q?+q[1]:9;
+$('yr').textContent=Y+'–'+(Y+1);
+
+/* gambar rak: tinggi buku = kuartil */
+const BK=[['Q1','75–99',220,'#ffd84a','#14161a'],['Q2','50–74',178,'#e9f4f4','#0b5d63'],['Q3','25–49',138,'#8cc6c9','#0b3f43'],['Q4','0–24',100,'#3f8f94','#ffffff']];
+$('books').innerHTML=BK.map(([q,p,h,f,t],i)=>{const x=34+i*104,w=78,y=266-h;return `<g><rect x="${x+6}" y="${y+6}" width="${w}" height="${h}" rx="4" fill="#073f43" opacity=".55"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${f}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="url(#sp)"/><rect x="${x+10}" y="${y+16}" width="${w-20}" height="2" fill="${t}" opacity=".5"/>${h>120?`<rect x="${x+10}" y="${y+h-26}" width="${w-20}" height="2" fill="${t}" opacity=".5"/>`:""}<text x="${x+w/2}" y="${y+56}" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="30" fill="${t}">${q}</text><text x="${x+w/2}" y="${y+80}" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="${t}">pers. ${p}</text></g>`}).join('');
+
+let D=null,ALL=[],cur=[];
+const st={tab:'all'};
+try{st.tab=localStorage.getItem('pjk2-tab')||'all'}catch(e){}
+const TABS=[['all','Semua'],['int','Internasional bereputasi'],['nas','Nasional SINTA'],['top','Top tier (Q1)'],['ft','Fast track'],['conf','Konferensi'],['asia','Konferensi Asia/ASEAN'],['sem','Seminar nasional']];
+const CHIPS=[['Gratis APC',()=>{$('max').value='0';setTab('all')}],['SINTA 1–2',()=>{$('sinta').value='12';setTab('all')}],['Q1 SCImago',()=>{$('qsrc').value='sjr';$('qv').value='Q1';setTab('all')}],['Kesehatan + Komputer',()=>{$('bid').value='Kesehatan + Komputer'}],['Konferensi Asia/ASEAN',()=>{setTab('asia');$('sort').value='date'}],['Acara mendatang',()=>{setTab('conf');$('sort').value='date'}]];
+$('chips').innerHTML=CHIPS.map((c,i)=>`<button class="chip" data-c="${i}">${c[0]}</button>`).join('');
+
+function rollEvent(e){
+  let s=new Date(e.s),en=new Date(e.e||e.s),est=false,yrs=0;
+  if(e.recur){while(en<NOW&&yrs<10){s.setFullYear(s.getFullYear()+1);en.setFullYear(en.getFullYear()+1);yrs++}est=yrs>0}
+  return {...e,kind:'ev',S:s,E:en,est,past:en<NOW,n:e.n.replace('{Y}',s.getFullYear())};
+}
+function prep(){
+  const J=D.journals.map(j=>({...j,kind:'j',fee:j.apc}));
+  const E=D.events.map(rollEvent);
+  ALL=[...J,...E];
+  const bids=[...new Set(ALL.flatMap(o=>o.b))].sort();
+  $('bid').innerHTML='<option value="">Semua bidang</option>'+bids.map(b=>`<option>${esc(b)}</option>`).join('');
+  const js=ALL.filter(o=>o.kind==='j');
+  const up=E.filter(e=>!e.past).length;
+  $('stats').innerHTML=[[js.length,'jurnal terkurasi'],[js.filter(j=>j.sjr==='Q1').length,'jurnal Q1 SCImago'],[js.filter(j=>j.sinta===1||j.sinta===2).length,'jurnal SINTA 1–2'],[up,`acara ${Y}–${Y+1} mendatang`]].map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');
+  $('upd').textContent=`Data dikurasi per ${fmt(new Date(D.updated))}. Tahun dan jadwal acara dihitung otomatis dari tanggal hari ini (${fmt(NOW)}).`;
+}
+const cap=o=>o.kind==='ev'&&o.t==='sem'?Math.min(+$('max').value,10000000):+$('max').value;
+function inTab(o,t){
+  if(t==='all')return true;
+  if(t==='int')return o.kind==='j'&&o.sc==='int';
+  if(t==='nas')return o.kind==='j'&&(o.sinta===1||o.sinta===2);
+  if(t==='top')return o.top||(o.kind==='j'&&(o.sjr==='Q1'||o.cs==='Q1'));
+  if(t==='ft')return !!o.ft;
+  if(t==='asia')return o.kind==='ev'&&o.reg!=='Indonesia';
+  if(t==='conf'||t==='sem')return o.kind==='ev'&&o.t===t;
+}
+function rank(o){if(o.kind==='ev')return 50;return Math.min(qn(o.sjr),qn(o.cs))*10+(o.sinta?o.sinta:5)}
+function rows(t=st.tab,apply=true){
+  const q=$('q').value.trim().toLowerCase(),rg=$('reg').value,b=$('bid').value,qs=$('qsrc').value,qv=$('qv').value,si=$('sinta').value,ft=$('ft').checked,ps=$('past').checked;
+  return ALL.filter(o=>inTab(o,t)&&o.fee<=cap(o)&&(!b||o.b.includes(b))&&(!ft||o.ft)&&(ps||!o.past)&&(!rg||(o.kind==='ev'&&(rg==='luar'?o.reg!=='Indonesia':o.reg===rg)))
+    &&(!qv||(o.kind==='j'&&o[qs]===qv))
+    &&(!si||(o.kind==='j'&&(si==='12'?(o.sinta===1||o.sinta===2):o.sinta===+si)))
+    &&(!q||[o.n,o.p,o.loc,o.reg,o.idx,o.b.join(' '),o.sjr,o.cs,o.sinta?'sinta '+o.sinta:''].join(' ').toLowerCase().includes(q)));
+}
+function sorted(r){
+  const so=$('sort').value,B=1e15;
+  const f={rank:(a,c)=>rank(a)-rank(c),ar:(a,c)=>((c.ar?.[1])??-1)-((a.ar?.[1])??-1),dur:(a,c)=>((a.dur?.[0])??B)-((c.dur?.[0])??B),fee:(a,c)=>a.fee-c.fee,date:(a,c)=>(a.S?+a.S:B)-(c.S?+c.S:B)}[so];
+  return r.sort((a,c)=>f(a,c)||(a.S&&c.S?a.S-c.S:0)||a.n.localeCompare(c.n));
+}
+const qb=(q,l)=>q?`<span class="bd q${q[1]}" title="${l}">${l} ${q}</span>`:'';
+const rp=n=>n===0?'Rp0':'Rp'+n.toLocaleString('id-ID');
+const days=([a,b])=>{const m=x=>x>=60?Math.round(x/30)+' bln':Math.round(x/7)+' mgg';return `${m(a)}–${m(b)}`};
+function jCard(o){
+  const nm=encodeURIComponent(o.n.split(' (')[0].split(':')[0]);
+  const sintaB=o.sinta?`<span class="bd s${o.sinta}">SINTA ${o.sinta}</span>`:`<span class="bd">${o.sintaT?esc(o.sintaT):'Tidak di SINTA (luar negeri)'}</span>`;
+  const badges=[o.top?'<span class="bd top">Top tier</span>':'',qb(o.sjr,'SCImago'),qb(o.cs,'Scopus'),o.sjr||o.cs?'':'<span class="bd">Belum terindeks Scopus</span>',sintaB,o.wos?`<span class="bd">WoS ${esc(o.wos)}</span>`:'',o.ft?'<span class="bd ft">Fast track</span>':''].join('');
+  const arM=o.ar?(o.ar[0]+o.ar[1])/2:0;
+  return `<article class="card">
+  <div class="badges">${badges}</div>
+  <h3><a href="${esc(o.url)}">${esc(o.n)}</a></h3>
+  <div class="pub">${esc(o.p)} · ${o.sc==='int'?'Internasional':'Nasional'}</div>
+  <dl class="trio">
+    <div><dt>APC</dt><dd>${o.apc===0?'Rp0':'≤ '+rp(o.apc)}</dd></div>
+    <div><dt>Acceptance</dt><dd>± ${o.ar[0]}–${o.ar[1]}%</dd><div class="meter"><i style="width:${Math.min(100,arM*1.6)}%"></i></div></div>
+    <div><dt>Desk → accept</dt><dd>± ${days(o.dur)}</dd></div>
+  </dl>
+  <p class="line"><b>Biaya:</b> ${esc(o.apcT)}</p>
+  ${o.ft?`<p class="line"><b>Fast track:</b> ${esc(o.ft)}</p>`:''}
+  ${o.note?`<p class="line"><b>Catatan:</b> ${esc(o.note)}</p>`:''}
+  <p class="fields">${esc(o.b.join(' · '))}</p>
+  <p class="ver ${o.v?'v':'e'}">${o.v?'Fast track / catatan terverifikasi dari sumber resmi':'Q, APC & angka review: perkiraan — cek ulang'}</p>
+  <div class="links"><a class="main" href="${esc(o.url)}">Situs resmi ↗</a><a href="https://sinta.kemdiktisaintek.go.id/journals?q=${nm}">SINTA</a><a href="https://www.scimagojr.com/journalsearch.php?q=${nm}">SCImago</a><a href="https://www.scopus.com/sources">Scopus</a>${o.src?`<a href="${esc(o.src)}">Sumber</a>`:''}</div>
+</article>`;
+}
+function eCard(o){
+  const dd=Math.round((o.S-NOW)/864e5);
+  const when=o.past?'Sudah lewat':dd<=0?'Sedang berlangsung':`Dalam ${dd} hari`;
+  const range=+o.S===+o.E?fmt(o.S):`${o.S.getDate()}${o.S.getMonth()!==o.E.getMonth()?' '+BLN[o.S.getMonth()]:''}–${fmt(o.E)}`;
+  return `<article class="card${o.past?' past':''}"><div class="ev">
+  <div class="cal"><b>${o.S.getDate()}</b><span>${BLN[o.S.getMonth()]}</span><small>${o.S.getFullYear()}</small></div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+   <div class="badges"><span class="bd ${o.t==='conf'?'q1':'s2'}">${o.t==='conf'?'Konferensi':'Seminar nasional'}</span><span class="bd">${esc(o.reg)}</span>${o.fee<=10000000?'<span class="bd s2">≤ Rp10 jt</span>':'<span class="bd ft">Budget Rp10–15 jt</span>'}${o.top?'<span class="bd top">Top tier</span>':''}${o.est?'<span class="bd ft">Tanggal perkiraan</span>':''}</div>
+   <h3><a href="${esc(o.url)}">${esc(o.n)}</a></h3>
+   <div class="pub" style="margin-top:-4px">${esc(o.p)}</div>
+  </div></div>
+  <dl class="trio">
+   <div><dt>Tanggal</dt><dd>${range}</dd></div>
+   <div><dt>Lokasi</dt><dd>${esc(o.loc)}</dd></div>
+   <div><dt>Biaya</dt><dd>≤ ${rp(o.fee)}</dd></div>
+  </dl>
+  <p class="line"><b>Indeks:</b> ${esc(o.idx)}</p>
+  <p class="line"><b>Biaya pemakalah:</b> ${esc(o.feeT)}</p>
+  <p class="line"><b>Tenggat:</b> ${o.est?'Belum diumumkan untuk edisi ini — pantau situs':esc(o.dl)}</p>
+  <p class="cd">${when}</p>
+  <p class="ver ${o.v&&!o.est?'v':'e'}">${o.est?`Edisi ${o.S.getFullYear()} diperkirakan dari pola tahunan`:o.v?'Tanggal & lokasi terverifikasi dari situs/CFP resmi':'Perkiraan — cek ulang'}</p>
+  <div class="links"><a class="main" href="${esc(o.url)}">Situs resmi ↗</a>${o.src&&o.src!==o.url?`<a href="${esc(o.src)}">Sumber / CFP</a>`:''}</div>
+</article>`;
+}
+function setTab(t){st.tab=t;try{localStorage.setItem('pjk2-tab',t)}catch(e){}render()}
+function render(){
+  if(!D)return;
+  $('tabs').innerHTML=TABS.map(([k,l])=>`<button class="tab" role="tab" data-t="${k}" aria-selected="${st.tab===k}">${l}<small>${rows(k).length}</small></button>`).join('');
+  cur=sorted(rows());
+  $('count').textContent=`${cur.length} hasil`;
+  $('list').innerHTML=cur.length?cur.map(o=>o.kind==='j'?jCard(o):eCard(o)).join(''):'<div class="empty">Tidak ada yang cocok dengan kombinasi filter ini. <button class="btn" data-reset>Reset semua filter</button></div>';
+}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setTab(b.dataset.t)});
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;CHIPS[+b.dataset.c][1]();render();document.querySelector('.bar').scrollIntoView({behavior:'smooth'})});
+['q','reg','bid','qsrc','qv','sinta','max','sort','ft','past'].forEach(id=>$(id).addEventListener('input',render));
+function resetAll(){['q','reg','bid','qv','sinta'].forEach(id=>$(id).value='');$('qsrc').value='sjr';$('max').value='15000000';$('sort').value='rank';$('ft').checked=false;$('past').checked=false;setTab('all')}
+$('reset').addEventListener('click',resetAll);
+$('list').addEventListener('click',e=>{if(e.target.closest('[data-reset]'))resetAll()});
+$('copy').addEventListener('click',async()=>{
+  const c=v=>`"${String(v??'').replace(/"/g,'""')}"`;
+  const h=['Nama','Penerbit/Penyelenggara','Wilayah','Situs resmi','Q SCImago','Q Scopus','SINTA','Bidang','Biaya','Acceptance %','Durasi (hari)','Fast track','Tanggal','Lokasi'];
+  const t=[h.join(','),...cur.map(o=>[o.n,o.p,o.reg||(o.sc==='int'?'Internasional':'Nasional'),o.url,o.sjr||'',o.cs||'',o.sinta||'',o.b.join('; '),o.apcT||o.feeT,o.ar?o.ar.join('–'):'',o.dur?o.dur.join('–'):'',o.ft||'',o.S?fmt(o.S):'',o.loc||''].map(c).join(','))].join('\n');
+  try{await navigator.clipboard.writeText(t);$('copy').textContent='Tersalin ✓'}catch(e){$('copy').textContent='Gagal menyalin'}
+  setTimeout(()=>$('copy').textContent='Salin hasil (CSV)',1800);
+});
+try{D=JSON.parse($('seed').textContent);prep();render()}catch(e){$('count').textContent='Terjadi kesalahan saat menyiapkan data.'}
+try{fetch('data.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.journals&&j.events&&(!D||j.updated>=D.updated)){D=j;prep();render()}}).catch(()=>{})}catch(e){}
+}
+</script>
+</body>
+</html>
